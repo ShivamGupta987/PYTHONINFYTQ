@@ -12,6 +12,7 @@ class Doors:
         print("Doors Details:")
         
         # car ke bina uppare wale ka kuch nhi isliye composition relation
+        # niche jo object hai sb car pe depended hai
         
 class Car:
     def __init__(self):
