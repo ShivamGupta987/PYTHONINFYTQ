@@ -112,7 +112,7 @@
             
             
 #  first and last popsitoon leetcode 34 
-using binary
+# using binary
 # class Solution:
 #     def searchRange(self, nums: List[int], target: int) -> List[int]:
 #         def find_first(nums, target):
