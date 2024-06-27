@@ -46,3 +46,20 @@ class Solution:
         else:
             return self.climbStairs(n-1) + self.climbStairs(n-2)
         
+        # binary using recusion
+def binary_serach(arr,left,right,target):
+    if left > right:
+        return -1 
+    
+    mid = left  + ((right-left)//2)
+    
+    if arr[mid] == target:
+        return mid 
+    
+    elif arr[mid] > target:
+        return binary_serach(arr,left,mid-1,target)
+    else:
+        return binary_serach(arr,mid+1,right,target)
+    
+
+        
