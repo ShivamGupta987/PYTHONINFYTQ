@@ -75,5 +75,14 @@ def generate_subset(s,current= "",index =0):
 ex = "abc"
 generate_subset(ex)
     
-
+def generate_subset(s,current= "",index =0):
+    if index == len(s):
+        print(current)
+        return 
+    
+    generate_subset(s,current + s[index],index+1)
+    generate_subset(s,current +index+1)
+    
+ex = "abc"
+generate_subset(ex)
         
