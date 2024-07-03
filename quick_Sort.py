@@ -18,7 +18,8 @@ sorted_arr = quicksort_swap(arr)
 print(sorted_arr)
 
 
-# Method 2: Left and Right Pointers for Partitioning
+# Method 2: Left and Right Pointers for 
+# 2nd emthdod
 # In this method, we use left and right pointers to partition the array around a pivot element.
 
 
