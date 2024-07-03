@@ -39,3 +39,28 @@ if __name__ == "__main__":
     arr = [3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5]
     sorted_arr = merge_sort(arr)
     print("Sorted array:", sorted_arr)
+    
+    # 2nd approach
+    
+def merge(arr,left_half,right_half):
+    i=j=k =0
+    
+    while i<len(left_half) and j<len(right_half):
+        if left_half[i] < right_half[j]:
+            arr[k] = left_half[i]
+            i+=1
+        else:
+            arr[k]=right_half[j]
+            j+=1
+        k+=1
+        
+    #check any remain element
+    
+    while i<len(left_half):
+        arr[k] = left_half[i]
+        i+=1
+        k+=1 
+    while j<len(left_half):
+        arr[k] = left_half[j]
+        j+=1
+        k+=1 
