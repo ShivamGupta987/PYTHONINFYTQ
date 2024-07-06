@@ -28,4 +28,12 @@ def cycle_Sort(nums):
             return i
     return n
             
-            
+# leetcode 287 missing dupicate number 
+class Solution:
+    def findDuplicate(self, nums: List[int]) -> int:
+        sorted_arr = sorted(nums)
+
+        for i in range(1,len(sorted_arr)):
+            if sorted_arr[i-1]==sorted_arr[i]:
+                return sorted_arr[i]
+        
