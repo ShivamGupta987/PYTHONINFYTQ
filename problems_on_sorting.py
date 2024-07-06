@@ -37,3 +37,16 @@ class Solution:
             if sorted_arr[i-1]==sorted_arr[i]:
                 return sorted_arr[i]
         
+        
+#  leetcode 448 numbers dsiappperarerd 
+
+class Solution:
+
+    def findDisappearedNumbers(self, nums: List[int]) -> List[int]:
+        n = len(nums)
+
+        num_set = set(nums)
+        all_nums = set(range(1,n+1))
+
+        missing_no = all_nums - num_set 
+        return list(missing_no)
