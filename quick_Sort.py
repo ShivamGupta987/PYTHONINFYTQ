@@ -204,20 +204,4 @@ if __name__ == "__main__":
     sorter.quicksort(arr)
     print("Sorted array:", arr)
     
-if __name__ == "__main__":
-    arr = [64, 25, 12, 22, 11]
-    sorter = Quicksort()
-    sorter.quicksort(arr)
-    print("Sorted array:", arr)
-    
-if __name__ == "__main__":
-    arr = [64, 25, 12, 22, 11]
-    sorter = Quicksort()
-    sorter.quicksort(arr)
-    print("Sorted array:", arr)
-    
-if __name__ == "__main__":
-    arr = [64, 25, 12, 22, 11]
-    sorter = Quicksort()
-    sorter.quicksort(arr)
-    print("Sorted array:", arr)
+
