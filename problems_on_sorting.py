@@ -54,23 +54,23 @@ class Solution:
     
 #  leetcode setmismatch problen 645 
 
-# class Solution:
-#     def findErrorNums(self, nums: List[int]) -> List[int]:
-#         nums = sorted(nums)
-#         duplicate = -1 
-#         n = len(nums)
+class Solution:
+    def findErrorNums(self, nums: List[int]) -> List[int]:
+        nums = sorted(nums)
+        duplicate = -1 
+        n = len(nums)
 
-#         expected_sum = n*(n+1) // 2
+        expected_sum = n*(n+1) // 2
 
-#         for i in range(1,n):
-#             if nums[i] == nums[i-1]:
-#                 duplicate = nums[i]
-#                 break
-#         actual_sum = sum(nums) - duplicate 
+        for i in range(1,n):
+            if nums[i] == nums[i-1]:
+                duplicate = nums[i]
+                break
+        actual_sum = sum(nums) - duplicate 
 
-#         missing = expected_sum - actual_sum 
+        missing = expected_sum - actual_sum 
 
-#         return [duplicate,missing]
+        return [duplicate,missing]
         
 #  2 method to solve same prroblem 
 
