@@ -54,21 +54,42 @@ class Solution:
     
 #  leetcode setmismatch problen 645 
 
-class Solution:
-    def findErrorNums(self, nums: List[int]) -> List[int]:
-        nums = sorted(nums)
-        duplicate = -1 
-        n = len(nums)
+# class Solution:
+#     def findErrorNums(self, nums: List[int]) -> List[int]:
+#         nums = sorted(nums)
+#         duplicate = -1 
+#         n = len(nums)
 
-        expected_sum = n*(n+1) // 2
+#         expected_sum = n*(n+1) // 2
 
-        for i in range(1,n):
-            if nums[i] == nums[i-1]:
-                duplicate = nums[i]
-                break
-        actual_sum = sum(nums) - duplicate 
+#         for i in range(1,n):
+#             if nums[i] == nums[i-1]:
+#                 duplicate = nums[i]
+#                 break
+#         actual_sum = sum(nums) - duplicate 
 
-        missing = expected_sum - actual_sum 
+#         missing = expected_sum - actual_sum 
 
-        return [duplicate,missing]
+#         return [duplicate,missing]
         
+#  2 method to solve same prroblem 
+
+def find_dup(nums):
+    n = len(nums)
+    
+    sum_n = n*(n+1)//2 
+    sum_n_squared = n+(n+1)+(2*n+1) // 6
+    
+    sum_nums = sum(nums)
+    sum_nums_squared = sum(x*x for x in nums)
+    
+    diff1 = sum_n - sum_nums 
+    diff2 = sum_n_squared - sum_nums_squared
+    
+    missing_plus_duplicated = diff2//diff1 
+    
+    missing = (diff1 + missing_plus_duplicated)//2
+    duplicate = missing - diff 
+    
+    return [ duplicate,missing]
+    
