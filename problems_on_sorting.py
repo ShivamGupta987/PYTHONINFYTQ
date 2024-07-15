@@ -91,5 +91,5 @@ def find_dup(nums):
     missing = (diff1 + missing_plus_duplicated)//2
     duplicate = missing - diff 
     
-    return [ duplicate,missing]
+    return [ duplicate,missingg
     
