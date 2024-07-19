@@ -115,4 +115,55 @@ if __name__ == "__main__":
         if head is None:
             return 
         print(head.data)
-        print_recursive(head.next)
+        print_recursive(head.next)   
+        
+        
+# Define the Node class
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+
+# Define the LinkedList class
+class LinkedList:
+    def __init__(self):
+        self.head = None
+
+    def insert_at_end(self, data):
+        new_node = Node(data)
+        if not self.head:
+            self.head = new_node
+            return
+        
+        last = self.head
+        while last.next:
+            last = last.next
+        
+        last.next = new_node
+
+    def insert_at_start(self, data):
+        new_node = Node(data)
+        new_node.next = self.head
+        self.head = new_node
+
+    def print_list(self):
+        current = self.head
+        while current:
+            print(current.data, end=" -> ")
+            current = current.next
+        print("None")
+
+# Example usage:
+if __name__ == "__main__":
+    # Create a new linked list
+    linked_list = LinkedList()
+
+    # Insert elements
+    linked_list.insert_at_end(1)
+    linked_list.insert_at_end(2)
+    linked_list.insert_at_end(3)
+    linked_list.insert_at_start(0)
+
+    # Print the linked list
+    linked_list.print_list()
+
