@@ -27,3 +27,24 @@ if __name__ == '__main__':
     ll.insert_at_beginning(1)
     
     ll.display()
+
+
+
+#  insert at end
+
+def insert_at_end(head,value):
+    new_node = Node(value)
+    
+    if head is None:
+        return new_node 
+    
+    current = head 
+    while current.next is not None:
+        current = current.next
+        
+    current.next = new_node 
+    return head 
+
+head = insert_at_end(head,100)
+
+        '
