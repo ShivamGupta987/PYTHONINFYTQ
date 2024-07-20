@@ -51,3 +51,4 @@ def delete_at_particular(head, index):
     current.next = current.next.next 
     temp.next = None 
     return head 
+
