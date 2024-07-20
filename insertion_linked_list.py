@@ -64,3 +64,36 @@ if __name__ == '__main__':
     ll.insert_at_pos(50, 3)
     
     ll.display()
+
+
+
+class Node:
+    def __init__(self,data):
+        self.data = data
+        self.next = None 
+        
+class Linked_list:
+    def __init__(self):
+        self.head = None
+        
+    def begining(self,data):
+        new_node = Node(data)
+        new_node.next = self.head
+        self.head = new_node 
+        
+    def end(self,data):
+        new_node = Node(data)
+         
+        if self.head is None:
+            self.head = new_node 
+            return 
+        
+        current = self.head 
+        
+        while current.next:
+            current = current.next 
+            
+        current.next = new_node 
+            
+        
+        
