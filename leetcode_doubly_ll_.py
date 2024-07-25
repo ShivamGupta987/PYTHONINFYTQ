@@ -110,4 +110,48 @@ class Solution:
         else:
             tail.next = list2
         return dummy.next
+    
+    # leetcodd problem 148 sort list 
+    # Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def sortList(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        if not head or not head.next:
+            return head
+        
+        # Function to split the linked list into two halves
+        def split(head):
+            slow = head
+            fast = head
+            prev = None
+            while fast and fast.next:
+                prev = slow
+                slow = slow.next
+                fast = fast.next.next
+            prev.next = None  
+            return head, slow
+        
+ 
+        def merge(left, right):
+            dummy = ListNode()
+            current = dummy
+            while left and right:
+                if left.val < right.val:
+                    current.next = left
+                    left = left.next
+                else:
+                    current.next = right
+                    right = right.next
+                current = current.next
+            current.next = left if left else right
+            return dummy.next
+        left, right = split(head)
+        left = self.sortList(left)
+        right = self.sortList(right)
+
+        return merge(left, right)
+        
             
