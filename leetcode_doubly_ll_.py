@@ -153,5 +153,105 @@ class Solution:
         right = self.sortList(right)
 
         return merge(left, right)
+    
+    # 2nd method
+    
+    # middle element
+    
+class ListNode:
+    def __init__(self, value=0, next=None):
+        self.value = value
+        self.next = next
+
+def middle_element(head):
+    if not head:
+        return head
+    
+    slow = head
+    fast = head
+    
+    while fast.next and fast.next.next:
+        slow = slow.next
+        fast = fast.next.next
+    
+    return slow
+
+def merge_two_list(left, right):
+    dummy = ListNode()
+    tail = dummy
+    
+    while left and right:
+        if left.value < right.value:
+            tail.next = left
+            left = left.next
+        else:
+            tail.next = right
+            right = right.next
+        tail = tail.next
+    
+    if left:
+        tail.next = left
+    if right:
+        tail.next = right
+    
+    return dummy.next
+
+def merge_sort(head):
+    if not head or not head.next:
+        return head
+    
+    mid = middle_element(head)
+    
+    # Break the list into two halves
+    next_to_mid = mid.next
+    mid.next = None
+    
+    left = merge_sort(head)
+    right = merge_sort(next_to_mid)
+    
+    # Merge the sorted halves
+    sorted_list = merge_two_list(left, right)
+    
+    return sorted_list
+
+# Helper function to create a linked list from a list of values
+def create_linked_list(values):
+    if not values:
+        return None
+    head = ListNode(values[0])
+    current = head
+    for value in values[1:]:
+        current.next = ListNode(value)
+        current = current.next
+    return head
+
+# Helper function to print a linked list
+def print_linked_list(head):
+    values = []
+    while head:
+        values.append(head.value)
+        head = head.next
+    print(" -> ".join(map(str, values)))
+
+# Test the merge_sort function
+if __name__ == "__main__":
+    # Create an unsorted linked list
+    values = [4, 2, 1, 3]
+    head = create_linked_list(values)
+    
+    print("Original linked list:")
+    print_linked_list(head)
+    
+    # Sort the linked list
+    sorted_head = merge_sort(head)
+    
+    print("Sorted linked list:")
+    print_linked_list(sorted_head)
+
+        
+        
+        
         
             
+
+   
