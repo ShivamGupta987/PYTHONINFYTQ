@@ -1,38 +1,94 @@
+
+# stack with the help of linked list
 class Stack:
-    def __init__(self):
-        self.items = []
-
-    def is_empty(self):
-        return len(self.items) == 0
-
-    def push(self, item):
-        self.items.append(item)
-
+    # constructor
+    def __init__(self) -> None:
+        self.stack = []
+    
+    def push(self,value):
+        self.stack.append(value)
     def pop(self):
-        if self.is_empty():
-            raise IndexError("pop from empty stack")
-        return self.items.pop()
+        self.stack.pop()
+    
+    def printresult(self):
+        return self.stack
+        
+s = Stack()
+s.push(3)
+s.push(4)
+s.push(5)
 
-    def peek(self):
-        if self.is_empty():
-            raise IndexError("peek from empty stack")
-        return self.items[-1]
+s.push(6)
+print(s.printresult())
 
-    def size(self):
-        return len(self.items)
+s.pop()
+s.pop()
 
-    def __str__(self):
-        return str(self.items)
+print(s.printresult())
 
-# Example usage
+
+class Stack:
+    # constructor
+    def __init__(self) -> None:
+        self.stack = []
+    # print reverse
+    def push(self,value):
+        self.stack = [value]+self.stack
+    def pop(self):
+        self.stack.pop()
+    
+    def printresult(self):
+        return self.stack
+        
+s = Stack()
+s.push(3)
+s.push(4)
+s.push(5)
+
+s.push(6)
+print(s.printresult())
+
+s.pop()
+s.pop()
+
+print(s.printresult())
+
+
+# stack with the linked list 
+
+class Node:
+    def __init__(self,data=None) -> None:
+        self.data = data
+        self.next = None 
+        
+class Stack:
+    def __init__(self) -> None:
+        self.head = None 
+        
+    def push(self,data):
+        new_node = Node(data)
+        new_node.next = self.head
+        self.head = new_node
+        
+    def pop(self):
+        if self.head is None:
+            raise IndexError("stack is empty")
+        popped_value = self.head.data 
+        self.head = self.head.next 
+        return popped_value 
+    def print(self):
+        while self.head is not None:
+            print(self.head.data)
+            self.head = self.head.next
+
 if __name__ == "__main__":
-    stack = Stack()
-    stack.push(1)
-    stack.push(2)
-    stack.push(3)
-    print("Stack:", stack)
-    print("Peek:", stack.peek())
-    print("Pop:", stack.pop())
-    print("Stack after pop:", stack)
-    print("Is stack empty?", stack.is_empty())
-    print("Stack size:", stack.size())
+    s = Stack()
+    s.push(3)
+    s.push(3)
+
+    s.push(3)
+    s.print()
+
+    
+    
+        
