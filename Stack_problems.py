@@ -1,37 +1,84 @@
-# code
-import sys
+# leetcodee problem non 1047 
 
-# O(n * k) solution for finding
-# maximum sum of a subarray of size k
-INT_MIN = -sys.maxsize - 1
-
-# Returns maximum sum in a
-# subarray of size k.
-
-
-def maxSum(arr, n, k):
-
-    # Initialize result
-    max_sum = INT_MIN
-
-    # Consider all blocks
-    # starting with i.
-    for i in range(n - k + 1):
-        current_sum = 0
-        for j in range(k):
-            current_sum = current_sum + arr[i + j]
-
-        # Update result if required.
-        max_sum = max(current_sum, max_sum)
-
-    return max_sum
+def remove_dupli(input_str):
+    set_str=set()
+    stack=[]
+    input_string = input_str 
+    
+    for i in input_string:
+        if i not in set_str:
+            set_str.add(i)
+            stack.append(i)
+    return "".join(stack)
 
 
-# Driver code
-arr = [1, 4, 2, 10, 2,
-       3, 1, 0, 20]
-k = 4
-n = len(arr)
-print(maxSum(arr, n, k))
+input_str = "aabcc"
+result = remove_dupli(input_str)
+print(result)
+            
+            
+# mwethod 2 
 
-# This code is contributed by mits
+class Solution:
+    def removeDuplicates(self, s: str) -> str:
+        stack =[]
+
+        for i in s:
+            if len(stack) == 0:
+                stack.append(i)
+            elif i == stack[-1]:
+                stack.pop()
+            else:
+                stack.append(i)
+        return ''.join(stack)
+        
+
+    
+# leetcode valid parenthese problem no 20
+
+class Solution:
+    def isValid(self, s: str) -> bool:
+        open_braces = ["[","{","("]
+        closed_braces = ["]","}",")"]
+        stack =[]
+
+        for i in s:
+            if i in open_braces:
+                stack.append(i)
+
+            elif i in closed_braces:
+                if len(stack) == 0:
+                    return  
+                index = closed_braces.index(i)
+                if open_braces[index] == stack[-1]:
+                    stack.pop()
+                else:
+                    return False 
+
+        return len(stack) == 0    
+    
+    # method 2
+    
+    def isValid(self, s: str) -> bool:
+        stack = []
+        open_braces = ["(", "{"]
+        closed_braces = [")", "}"]
+        
+        for i in s:
+            if i in open_braces:
+                stack.append(i)
+            elif i in closed_braces:
+                if len(stack) == 0:
+                    return False
+                index = closed_braces.index(i)
+                if open_braces[index] == stack[-1]:
+                    stack.pop()
+                else:
+                    return False
+        
+        return len(stack) == 0
+
+# Example usage:
+sol = Solution()
+print(sol.isValid("{()}"))  # Output: True
+print(sol.isValid("{[}"))   # Output: False
