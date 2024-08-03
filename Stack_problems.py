@@ -166,7 +166,6 @@ class Solution:
         
         return len(stack) == 0
 
-# Example usage:
 sol = Solution()
-print(sol.isValid("{()}"))  # Output: True
-print(sol.isValid("{[}"))   # Output: False
+print(sol.isValid("{()}"))  
+print(sol.isValid("{[}"))  
