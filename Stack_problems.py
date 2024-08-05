@@ -193,3 +193,64 @@ class Solution:
             stack.append(i % n)
         
         return res
+    
+# 1944 problems on stack leetcode
+
+class Solution:
+    def canSeePersonsCount(self, heights: List[int]) -> List[int]:
+        n =len(heights)
+        result = [0]*n
+        stack = []
+
+        for i in range(n-1,-1,-1):
+            height = heights[i]
+            visibility = 0
+            while stack and height > stack[-1]:
+                stack.pop()
+                visibility+=1
+            if(stack):
+                visibility+=1
+
+            result[i]=visibility
+            stack.append(height)
+        return result
+        
+#leetcode 155 problem solved min stack
+
+class MinStack:
+
+    def __init__(self):
+        self.stack=[]
+        self.minStack=[]
+        self.size=0
+        
+
+    def push(self, val: int) -> None:
+        if self.size == 0:
+            self.minStack.append(val)
+        if val <= self.minStack[-1]:
+            self.minStack.append(val)
+        self.stack.append(val)
+        self.size+=1
+        
+
+    def pop(self) -> None:
+        self.stack.pop()
+        self.minStack.pop()
+        
+
+    def top(self) -> int:
+        return self.stack[-1]
+        
+
+    def getMin(self) -> int:
+        return self.minStack[-1]
+        
+
+
+# Your MinStack object will be instantiated and called as such:
+# obj = MinStack()
+# obj.push(val)
+# obj.pop()
+# param_3 = obj.top()
+# param_4 = obj.getMin()
