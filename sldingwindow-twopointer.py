@@ -1,4 +1,4 @@
-def max_sum_subarray(arr,k):
+# def max_sum_subarray(arr,k):
 #     l=0
 #     r=k-1
     
@@ -54,3 +54,29 @@ def max_sum_subarray(arr,k):
 # print(longest_subarray_with_sum(arr, k))  
 
 
+
+def longest_subarray(arr,k):
+    l=0
+    r=0
+    c_s = 0 
+    m_l = 0 
+    n = len(arr)
+    
+    while(r<n):
+        
+        c_s = c_s+arr[r]
+        
+        while(c_s > k) :
+            c_s = c_s - arr[l]
+            l+=1 
+        if c_s <=k :
+            m_l = max(m_l,r-l+1)
+        
+        r+=1
+    return m_l
+
+
+
+arr = [2, 5, 1, 10, 10]
+k = 14
+print(longest_subarray(arr, k))  
