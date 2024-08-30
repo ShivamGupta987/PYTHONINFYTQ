@@ -23,7 +23,6 @@ dog.eat()
 
 
 # --------------------superkeyword-------------
-
 # 1st use case access the parent propertires
 
 class Parent : 
@@ -405,7 +404,8 @@ dog.getTheNameofDogs()
 dog.eat()
 
 
-# --------------------superkeyword-------------
+# 
+#<----------------superkeyword------------->
 
 # 1st use case access the parent propertires
 
@@ -569,4 +569,7 @@ print(C.__mro__)
 # Hybird inheritance
 
 class Pet(Dog,Cat):
-    pass
+    pass         
+
+
+ 
