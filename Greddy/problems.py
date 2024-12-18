@@ -32,6 +32,55 @@ class Solution:
             truckSize -= max_boxes
             i+=1
         return ans
+# 881 leetcode boat problem 
+
+class Solution:
+    def numRescueBoats(self, people: List[int], limit: int) -> int:
+        people.sort()
+        boat_count = 0
+        start = 0
+        end = len(people)-1
+
+        while start<=end:
+            if people[start]+people[end]<=limit:
+                start+=1
+                end-=1
+                boat_count+=1
+
+            else:
+                end-=1
+                boat_count+=1
+        return boat_count
+        
+        
+# 56 leetcode merge intervals
+class Solution:
+    def merge(self, intervals: List[List[int]]) -> List[List[int]]:
+
+        intervals.sort(key = lambda x:x[0])
+        merged = []
+
+        for interval in intervals:
+            if not merged or interval[0]>merged[-1][1]:
+                merged.append(interval)
+            else:
+                merged[-1][1] = max(merged[-1][1],interval[1])
+
+        return merged
 
 
+# 452 minimum number of arrows leetcode
 
+class Solution:
+    def findMinArrowShots(self, points: List[List[int]]) -> int:
+        
+        points.sort(key = lambda x:x[1])
+        arrow_pos = points[0][1]
+        arrow_count = 1
+        for i in range(1,len(points)):
+            if arrow_pos >= points[i][0]:
+                continue
+            arrow_count +=1
+            arrow_pos = points[i][1] 
+        return arrow_count
+    
